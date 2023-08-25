@@ -66,10 +66,19 @@ export const generateUploadUrl = onCall(
   }
 );
 
+export interface Video {
+  id?: string;
+  uid?: string;
+  filename?: string;
+  status?: "processing" | "processed";
+  title?: string;
+  description?: string;
+}
+
 export const getVideos = onCall({ maxInstances: 1 }, async () => {
   const snapshot = await firestore
     .collection(videoCollectionId)
     .limit(10)
     .get();
-  snapshot.docs.map((doc) => doc.data());
+  return snapshot.docs.map((doc) => doc.data());
 });
