@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <main>
       {videos.map((video) => (
-        <Link href={`/watch?v=${video.filename}`}>
+        <Link href={`/watch?v=${video.filename}`} key={video.id}>
           <Image
             src={`/thumbnail.png`}
             alt="video"
@@ -22,3 +22,6 @@ export default async function Home() {
     </main>
   );
 }
+
+// Set cache timeout
+export const revalidate = 30;
