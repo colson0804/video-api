@@ -18,7 +18,7 @@ Cloud storage is used to host both raw and processed video files.
 
 Once a video is processed, Firestore is used to store the video's metadata. 
 
-## Cloud Pub/Sub
+### Cloud Pub/Sub
 
 Sends a message to the video processing workers when a video is uploaded so that the video can then be processed asyncronously. 
 
